@@ -1,7 +1,7 @@
 const argv = process.argv;
 
 const parseArgs = () => {
-  const output = [];
+  const needArguments = [];
   const arguments = argv.filter(
     (element, index, arr) =>
       element.startsWith("--") || (index > 0 && arr[index - 1].startsWith("--"))
@@ -9,10 +9,10 @@ const parseArgs = () => {
 
   arguments.forEach(
     (element, index, arr) =>
-      element.startsWith("--") && output.push(`${element.slice(2)} is ${arr[index + 1]}`)
+      element.startsWith("--") && needArguments.push(`${element.slice(2)} is ${arr[index + 1]}`)
   );
 
-  console.log(output.join(", "));
+  console.log(needArguments.join(", "));
 };
 
 parseArgs();
